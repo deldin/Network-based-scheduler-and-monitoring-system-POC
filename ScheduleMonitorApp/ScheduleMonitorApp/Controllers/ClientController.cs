@@ -13,6 +13,7 @@ using ScheduleMonitorApp.Entities;
 
 namespace ScheduleMonitorApp.Controllers
 {
+    [Authorize]
     public class ClientController : Controller
     {
         private ScheduleMonitorDb db = new ScheduleMonitorDb();

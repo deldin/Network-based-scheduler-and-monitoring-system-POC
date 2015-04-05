@@ -14,6 +14,7 @@ using ScheduleMonitorApp.ViewModels;
 
 namespace ScheduleMonitorApp.Controllers
 {
+    [Authorize]
     public class CllientCommandLogController : Controller
     {
         private ScheduleMonitorDb db = new ScheduleMonitorDb();

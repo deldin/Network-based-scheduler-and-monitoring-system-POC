@@ -11,6 +11,7 @@ using ScheduleMonitorApp.Entities;
 
 namespace ScheduleMonitorApp.Controllers
 {
+    [Authorize]
     public class ClientCommandsController : Controller
     {
         private ScheduleMonitorDb db = new ScheduleMonitorDb();
