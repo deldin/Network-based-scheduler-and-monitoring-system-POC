@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ScheduleMonitorApp.Entities.ClientCommand>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @Class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ClientId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Command)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClientId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Command)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ClientCommandId }, new { @Class = "btn btn-primary" })
+            @Html.ActionLink("Details", "Details", new { id = item.ClientCommandId }, new { @Class = "btn btn-primary" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.ClientCommandId }, new { @Class = "btn btn-primary" })
+        </td>
+    </tr>
+}
+
+</table>

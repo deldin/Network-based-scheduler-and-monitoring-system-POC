@@ -1,12 +1,8 @@
+using System.Data.Entity.Migrations;
 using ScheduleMonitorApp.Entities;
 
 namespace ScheduleMonitorApp.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
     internal sealed class Configuration : DbMigrationsConfiguration<ScheduleMonitorDb>
     {
         public Configuration()
@@ -59,8 +55,6 @@ namespace ScheduleMonitorApp.Migrations
                     LogText = "Sample Info Logged",
                     ClientCommandId = 103
                 });
-
-
         }
     }
 }

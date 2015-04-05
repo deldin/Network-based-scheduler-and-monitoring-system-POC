@@ -1,0 +1,47 @@
+﻿@model ScheduleMonitorApp.Entities.Client
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm("Edit", "Client", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal page-header">
+        <h4>Client</h4>
+        <hr/>
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ClientId)
+
+        <div class="form-group well">
+            @Html.LabelFor(model => model.ClientName, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ClientName)
+                @Html.ValidationMessageFor(model => model.ClientName)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-12">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+
+    </div>
+    <div>
+    <div class="form-group">
+        <div>
+            @Html.ActionLink("Back to List", "Index", null, new { @Class = "btn btn-warning" })
+        </div>
+    </div>
+</div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

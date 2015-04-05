@@ -1,0 +1,52 @@
+﻿@model ScheduleMonitorApp.Entities.Client
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Client:</h4>
+    <hr/>
+
+    @*<table class="table well" style="width: 50%">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientName)
+            </th>
+            <th>
+            </th>
+        </tr>
+        <tr>
+            <td style="vertical-align: bottom">
+                @Html.DisplayFor(modelItem => modelItem.ClientName)
+            </td>
+            <td>
+                @Html.ActionLink("Client Commands", "Index", "ClientCommands", new { clientId = Model.ClientId }, new { @Class = "btn btn-info" })
+            </td>
+        </tr>
+    </table>*@
+    <dl class="dl-horizontal well">
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientName):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientName)
+        </dd>
+
+        <dt>
+            @Html.Display("Client Commands:")
+        </dt>
+
+        <dd title="Click here to get commands for this Client">
+            @Html.ActionLink("Client Commands", "Index", "ClientCommands", new { clientId = Model.ClientId }, new { @Class = "btn btn-info" })
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }, new { @Class = "btn btn-primary" })
+    @Html.ActionLink("Back to List", "Index", null, new { @Class = "btn btn-warning" })
+</p>

@@ -161,6 +161,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ClientCommandsController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Entities\ScheduleMonitorDbContext.cs" />
     <Compile Include="Entities\Client.cs" />
@@ -225,6 +227,16 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Client\Create.cshtml" />
+    <Content Include="Views\Client\Delete.cshtml" />
+    <Content Include="Views\Client\Details.cshtml" />
+    <Content Include="Views\Client\Edit.cshtml" />
+    <Content Include="Views\Client\Index.cshtml" />
+    <Content Include="Views\ClientCommands\Create.cshtml" />
+    <Content Include="Views\ClientCommands\Delete.cshtml" />
+    <Content Include="Views\ClientCommands\Details.cshtml" />
+    <Content Include="Views\ClientCommands\Edit.cshtml" />
+    <Content Include="Views\ClientCommands\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -1,0 +1,42 @@
+﻿@model ScheduleMonitorApp.Entities.ClientCommand
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ClientCommand</h4>
+	<hr />
+    <dl class="dl-horizontal well">
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientId):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Command):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Command)
+        </dd>
+
+        <dt>
+            @Html.DisplayText("Logs and Errors:")
+        </dt>
+
+        <dd>
+            @Html.ActionLink("Output logs", "Index", "ClientCommands", new { clientCommandId = Model.ClientCommandId }, new { @Class = "btn btn-info" })
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientCommandId }, new { @Class = "btn btn-primary" })
+    @Html.ActionLink("Back to List", "Index", new{ clientId = Model.ClientId}, new { @Class = "btn btn-warning" })
+</p>

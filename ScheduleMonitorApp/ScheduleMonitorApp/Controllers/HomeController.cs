@@ -15,14 +15,14 @@ namespace ScheduleMonitorApp.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "This is a Network based Scheduler and Monitoring System";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact!!";
 
             return View();
         }
