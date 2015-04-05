@@ -55,7 +55,7 @@ namespace ScheduleMonitorApp.Controllers
             {
                 db.ClientCommands.Add(clientcommand);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { clientId = clientcommand.ClientId });
             }
 
             return View(clientcommand);
@@ -115,7 +115,7 @@ namespace ScheduleMonitorApp.Controllers
             ClientCommand clientcommand = await db.ClientCommands.FindAsync(id);
             db.ClientCommands.Remove(clientcommand);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { clientId = clientcommand.ClientId });
         }
 
         protected override void Dispose(bool disposing)

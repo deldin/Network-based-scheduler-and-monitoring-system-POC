@@ -1,0 +1,42 @@
+﻿@model ScheduleMonitorApp.Entities.ClientCommandLog
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ClientCommandLog</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LogType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LogType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LogText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LogText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientCommandId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientCommandId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientCommandLogId }, new { @Class = "btn btn-primary" })
+    @Html.ActionLink("Back to List", "Index", new { clientCommandId = Model.ClientCommandId }, new { @Class = "btn btn-warning" })
+</p>
