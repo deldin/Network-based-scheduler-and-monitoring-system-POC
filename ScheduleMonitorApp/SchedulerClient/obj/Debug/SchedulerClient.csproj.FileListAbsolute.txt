@@ -1,0 +1,5 @@
+C:\Users\RaviTeja\Desktop\Git\Network-based-scheduler-and-monitoring-system-POC\ScheduleMonitorApp\SchedulerClient\bin\Debug\SchedulerClient.exe.config
+C:\Users\RaviTeja\Desktop\Git\Network-based-scheduler-and-monitoring-system-POC\ScheduleMonitorApp\SchedulerClient\bin\Debug\SchedulerClient.exe
+C:\Users\RaviTeja\Desktop\Git\Network-based-scheduler-and-monitoring-system-POC\ScheduleMonitorApp\SchedulerClient\bin\Debug\SchedulerClient.pdb
+C:\Users\RaviTeja\Desktop\Git\Network-based-scheduler-and-monitoring-system-POC\ScheduleMonitorApp\SchedulerClient\obj\Debug\SchedulerClient.exe
+C:\Users\RaviTeja\Desktop\Git\Network-based-scheduler-and-monitoring-system-POC\ScheduleMonitorApp\SchedulerClient\obj\Debug\SchedulerClient.pdb
