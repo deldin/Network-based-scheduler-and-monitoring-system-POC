@@ -11,7 +11,7 @@ namespace SchedulerClient
 {
     class Program
     {
-        private enum SimpleServiceCustomCommands { StopWorker = 128, RestartWorker, CheckWorker };
+        private enum SimpleServiceCustomCommands { StopWorker = 195, RestartWorker, CheckWorker };
         static void Main(string[] args)
         {
             ServiceController myService = new ServiceController("ScheduleRunnerService");
