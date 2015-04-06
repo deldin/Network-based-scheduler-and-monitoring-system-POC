@@ -66,7 +66,24 @@ namespace ScheduleRunnerService
                         {
                             if (_db.ClientCommands.Any(x => x.IsScheduled == true && x.IsExecuted == false))
                             {
-                                var command = _db.ClientCommands.First(x => x.IsScheduled == true && x.IsExecuted == false);
+                                var command = _db.ClientCommands.Where(x => x.IsScheduled && x.IsExecuted == false).OrderBy(c=>c.ScheduledTime).First();
+
+                                if (command.ScheduledTime != null && command.ScheduledTime < DateTime.Now)
+                                {
+                                    var missedCommandLog = _db.ClientCommandLogs.Add(new ClientCommandLog()
+                                    {
+                                        ClientCommandId = command.ClientCommandId,
+                                        LogText = "Missed the Scheduled command : " + command.Command + " " + DateTime.Now,
+                                        LogType = "MISSED COMMAND"
+                                    });
+                                    command.IsExecuted = true;
+
+                                    _db.SaveChanges();
+
+                                    Log.Info("Executed the Scheduled command : " + command.Command + " " + DateTime.Now);
+                                    continue;
+                                }
+
                                 EventLog.WriteEntry("ScheduleRunnerService", DateTime.Now.ToLongTimeString() + " " + command.Command);
 
                                 base.OnCustomCommand(Convert.ToInt32(command.Command));

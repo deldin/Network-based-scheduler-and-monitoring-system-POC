@@ -1,4 +1,5 @@
 
+using System;
 using System.Data.Entity.Migrations;
 using SchedulerMonitorDataEntities.Entities;
 
@@ -22,9 +23,9 @@ namespace SchedulerMonitorDataEntities.Migrations
 
             context.ClientCommands.AddOrUpdate(
                 x => x.ClientCommandId,
-                new ClientCommand() { ClientCommandId = 101, ClientId = 1, Command = "128", IsExecuted = false, IsScheduled = true},
-                new ClientCommand() { ClientCommandId = 102, ClientId = 1, Command = "136", IsExecuted = false, IsScheduled = false },
-                new ClientCommand() { ClientCommandId = 103, ClientId = 2, Command = "145", IsExecuted = false, IsScheduled = true },
+                new ClientCommand() { ClientCommandId = 101, ClientId = 1, Command = "128", IsExecuted = false, IsScheduled = true, ScheduledTime = new DateTime(2015, 04, 06, 1 , 15, 00, DateTimeKind.Local) },
+                new ClientCommand() { ClientCommandId = 102, ClientId = 1, Command = "136", IsExecuted = false, IsScheduled = true, ScheduledTime = new DateTime(2014, 04, 06, 1, 15, 00, DateTimeKind.Local) },
+                new ClientCommand() { ClientCommandId = 103, ClientId = 2, Command = "145", IsExecuted = false, IsScheduled = true, ScheduledTime = new DateTime(2015, 04, 06, 2, 15, 00, DateTimeKind.Local) },
                 new ClientCommand() { ClientCommandId = 104, ClientId = 2, Command = "147", IsExecuted = false, IsScheduled = false }
                 );
             context.ClientCommandLogs.AddOrUpdate(
