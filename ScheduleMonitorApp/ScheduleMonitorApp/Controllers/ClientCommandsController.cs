@@ -1,8 +1,11 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Newtonsoft.Json;
+using ScheduleMonitorApp.ViewModels;
 using SchedulerMonitorDataEntities.Entities;
 
 namespace ScheduleMonitorApp.Controllers
@@ -41,7 +44,7 @@ namespace ScheduleMonitorApp.Controllers
         public ActionResult Create()
         {
             ViewData["clientId"] = Session["ClientId"];
-            return View();
+            return View(new NewCommandViewModel());
         }
 
         // POST: /ClientCommands/Create
@@ -49,17 +52,24 @@ namespace ScheduleMonitorApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include="ClientCommandId,ClientId,Command,IsScheduled,IsExecuted")] ClientCommand clientcommand)
+        public async Task<ActionResult> Create([Bind(Include="ClientCommandId,ClientId,Command,IsScheduled,IsExecuted")] NewCommandViewModel newCommandViewModel)
         {
             if (ModelState.IsValid)
             {
+                ClientCommand clientcommand = JsonConvert.DeserializeObject<ClientCommand>(JsonConvert.SerializeObject(newCommandViewModel));
                 clientcommand.IsExecuted = false;
+                try
+                {
+                    clientcommand.ScheduledTime = new DateTime(newCommandViewModel.ScheduledDate.Value.Year, newCommandViewModel.ScheduledDate.Value.Month, newCommandViewModel.ScheduledDate.Value.Day, newCommandViewModel.ScheduledTime.Value.Hour, newCommandViewModel.ScheduledTime.Value.Minute, newCommandViewModel.ScheduledTime.Value.Second);
+                }
+                catch{}
+
                 db.ClientCommands.Add(clientcommand);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index", new { clientId = clientcommand.ClientId });
             }
 
-            return View(clientcommand);
+            return View(newCommandViewModel);
         }
 
         // GET: /ClientCommands/Edit/5

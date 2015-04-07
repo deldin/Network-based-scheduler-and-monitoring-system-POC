@@ -1,11 +1,29 @@
-﻿@model SchedulerMonitorDataEntities.Entities.ClientCommand
+﻿@model ScheduleMonitorApp.ViewModels.NewCommandViewModel
 
 @{
     ViewBag.Title = "Create";
 }
-
+<script type="text/javascript" src="~\Scripts\jquery-1.10.2.min.js"></script>
 <h2>Create</h2>
 
+<script type="text/javascript">
+   
+    function disableTimes(val) {
+        if (val.checked === false) {
+            $('#ScheduledDate').attr('disabled', 'disabled');
+            $('#ScheduledTime').attr('disabled', 'disabled');
+        } else {
+            $('#ScheduledDate').removeAttr('disabled');
+            $('#ScheduledTime').removeAttr('disabled');
+        }
+    };
+
+    $(document).ready(function () {
+        $('#ScheduledDate').attr('disabled', 'disabled');
+        $('#ScheduledTime').attr('disabled', 'disabled');
+    });
+
+</script>
 
 @using (Html.BeginForm()) 
 {
@@ -35,7 +53,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IsScheduled, new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IsScheduled)
+                @Html.CheckBoxFor(model => model.IsScheduled,new{onchange="disableTimes(this);"})
                 @Html.ValidationMessageFor(model => model.IsScheduled)
             </div>
         </div>
@@ -48,34 +66,22 @@
             </div>
         </div>
 
-        @*<div class="form-group">
+        <div class="form-group">
+            @Html.LabelFor(model => model.ScheduledDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ScheduledDate)
+                @Html.ValidationMessageFor(model => model.ScheduledDate)
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.ScheduledTime, new {@class = "control-label col-md-2"})
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ScheduledTime)
                 @Html.ValidationMessageFor(model => model.ScheduledTime)
             </div>
-        </div>*@
-
-        <div class="container">
-            <div class="row">
-                <div class='col-sm-6'>
-                    <div class="form-group">
-                        <div class="input-group date" id="ScheduledTime">
-                            <input type="text" class="form-control" />
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <script type="text/javascript">
-                    $(function () {
-                        $("#ScheduledTime").datetimepicker();
-                    });
-                </script>
-            </div>
         </div>
-
+        
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />

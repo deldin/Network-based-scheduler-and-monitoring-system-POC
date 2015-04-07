@@ -173,6 +173,7 @@
     <Compile Include="Models\ScheduleMonitorModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\NewCommandViewModel.cs" />
     <Compile Include="ViewModels\OutputLogViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
