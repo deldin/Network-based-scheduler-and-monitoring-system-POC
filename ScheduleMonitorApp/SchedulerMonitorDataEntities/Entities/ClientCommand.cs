@@ -17,9 +17,13 @@ namespace SchedulerMonitorDataEntities.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ClientCommandId { get; set; }
         public int ClientId { get; set; }
+        [Required]
+        [RegularExpression("\\d{3}", ErrorMessage = "Only 3 digit numbers for the commands")]
         public string Command { get; set; }
         public bool IsScheduled { get; set; }
         public bool IsExecuted { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime? ScheduledTime { get; set; }
         public ICollection<ClientCommandLog> ClientCommandLogs { get; set; }
     }

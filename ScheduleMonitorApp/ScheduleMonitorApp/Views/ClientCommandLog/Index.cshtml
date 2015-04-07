@@ -1,14 +1,12 @@
-﻿@model IEnumerable<ScheduleMonitorApp.Entities.ClientCommandLog>
+﻿@model IEnumerable<SchedulerMonitorDataEntities.Entities.ClientCommandLog>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Client Command's Logs";
 }
 
-<h2>Index</h2>
+<h2>Client Command's Logs</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create", null, new { @Class = "btn btn-success" })
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -35,7 +33,7 @@
             @Html.DisplayFor(modelItem => item.ClientCommandId)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ClientCommandLogId }, new { @Class = "btn btn-primary" })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ClientCommandLogId }, new { @Class = "btn btn-primary disabled" })
             @Html.ActionLink("Details", "Details", new { id = item.ClientCommandLogId }, new { @Class = "btn btn-primary" })
             @Html.ActionLink("Delete", "Delete", new { id = item.ClientCommandLogId }, new { @Class = "btn btn-primary" })
         </td>
@@ -44,6 +42,7 @@
 
     <p>
         @Html.ActionLink("Go to Clients List", "Index", "Client", null, new {@Class = "btn btn-warning"})
+        @Html.ActionLink("Go Back", "Index", "ClientCommands", new{ ClientId = ViewData["ClientId"]}, new {@Class = "btn btn-warning"})
     </p>
 
 

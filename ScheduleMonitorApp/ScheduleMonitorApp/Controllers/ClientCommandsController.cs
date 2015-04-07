@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Net;
-using System.Web;
+using System.Threading.Tasks;
 using System.Web.Mvc;
-using ScheduleMonitorApp.Entities;
+using SchedulerMonitorDataEntities.Entities;
 
 namespace ScheduleMonitorApp.Controllers
 {
@@ -21,6 +17,8 @@ namespace ScheduleMonitorApp.Controllers
         public async Task<ActionResult> Index(int clientId)
         {
             TempData["clientId"] = clientId;
+            Session["ClientId"] = clientId;
+            ViewData["ClientName"] = db.Clients.Find(clientId).ClientName;
             return View(await db.ClientCommands.Where(x=>x.ClientId == clientId).ToListAsync());
         }
 
@@ -42,6 +40,7 @@ namespace ScheduleMonitorApp.Controllers
         // GET: /ClientCommands/Create
         public ActionResult Create()
         {
+            ViewData["clientId"] = Session["ClientId"];
             return View();
         }
 
@@ -50,10 +49,11 @@ namespace ScheduleMonitorApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include="ClientCommandId,ClientId,Command")] ClientCommand clientcommand)
+        public async Task<ActionResult> Create([Bind(Include="ClientCommandId,ClientId,Command,IsScheduled,IsExecuted")] ClientCommand clientcommand)
         {
             if (ModelState.IsValid)
             {
+                clientcommand.IsExecuted = false;
                 db.ClientCommands.Add(clientcommand);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index", new { clientId = clientcommand.ClientId });

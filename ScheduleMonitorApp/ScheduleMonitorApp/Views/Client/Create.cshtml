@@ -1,4 +1,4 @@
-﻿@model ScheduleMonitorApp.Entities.Client
+﻿@model SchedulerMonitorDataEntities.Entities.Client
 
 @{
     ViewBag.Title = "Create";
@@ -33,7 +33,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", null, new { @Class = "btn btn-warning" } )
 </div>
 
 @section Scripts {

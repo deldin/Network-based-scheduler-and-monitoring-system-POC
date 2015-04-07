@@ -163,16 +163,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClientCommandsController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
-    <Compile Include="Controllers\CllientCommandLogController.cs" />
+    <Compile Include="Controllers\ClientCommandLogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Entities\ScheduleMonitorDbContext.cs" />
-    <Compile Include="Entities\Client.cs" />
-    <Compile Include="Entities\ClientCommand.cs" />
-    <Compile Include="Entities\ClientCommandLog.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ScheduleMonitorModel.cs" />
@@ -181,10 +176,6 @@
     <Compile Include="ViewModels\OutputLogViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Schedule-Monitor-DB.mdf" />
-    <Content Include="App_Data\Schedule-Monitor-DB_log.ldf">
-      <DependentUpon>Schedule-Monitor-DB.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -240,19 +231,28 @@
     <Content Include="Views\ClientCommands\Details.cshtml" />
     <Content Include="Views\ClientCommands\Edit.cshtml" />
     <Content Include="Views\ClientCommands\Index.cshtml" />
-    <Content Include="Views\CllientCommandLog\Create.cshtml" />
-    <Content Include="Views\CllientCommandLog\Delete.cshtml" />
-    <Content Include="Views\CllientCommandLog\Details.cshtml" />
-    <Content Include="Views\CllientCommandLog\Edit.cshtml" />
-    <Content Include="Views\CllientCommandLog\Index.cshtml" />
+    <Content Include="Views\ClientCommandLog\Create.cshtml" />
+    <Content Include="Views\ClientCommandLog\Delete.cshtml" />
+    <Content Include="Views\ClientCommandLog\Details.cshtml" />
+    <Content Include="Views\ClientCommandLog\Edit.cshtml" />
+    <Content Include="Views\ClientCommandLog\Index.cshtml" />
+    <Content Include="Views\ClientCommandLog\Logs.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SchedulerMonitorDataEntities\SchedulerMonitorDataEntities.csproj">
+      <Project>{2f8d5384-2408-4047-ad10-6989922a1603}</Project>
+      <Name>SchedulerMonitorDataEntities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

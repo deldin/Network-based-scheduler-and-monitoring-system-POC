@@ -1,4 +1,4 @@
-﻿@model ScheduleMonitorApp.Entities.ClientCommand
+﻿@model SchedulerMonitorDataEntities.Entities.ClientCommand
 
 @{
     ViewBag.Title = "Delete";
@@ -34,7 +34,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back to List", "Index", new { clientId = Model.ClientId }, new { @Class = "btn btn-warning" })
         </div>
     }
 </div>

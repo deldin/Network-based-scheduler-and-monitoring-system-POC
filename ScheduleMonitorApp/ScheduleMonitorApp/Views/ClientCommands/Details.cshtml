@@ -1,4 +1,4 @@
-﻿@model ScheduleMonitorApp.Entities.ClientCommand
+﻿@model SchedulerMonitorDataEntities.Entities.ClientCommand
 
 @{
     ViewBag.Title = "Details";
@@ -31,7 +31,7 @@
         </dt>
 
         <dd>
-            @Html.ActionLink("Output logs", "Index", "CllientCommandLog", new { clientCommandId = Model.ClientCommandId }, new { @Class = "btn btn-info" })
+            @Html.ActionLink("Output logs", "Index", "ClientCommandLog", new { clientCommandId = Model.ClientCommandId }, new { @Class = "btn btn-info" })
         </dd>
 
     </dl>

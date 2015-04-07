@@ -1,0 +1,42 @@
+﻿@model IEnumerable<SchedulerMonitorDataEntities.Entities.ClientCommandLog>
+
+@{
+    ViewBag.Title = "Logs";
+}
+
+<h2>Logs</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LogType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LogText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClientCommandId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LogType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LogText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClientCommandId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ClientCommandLogId }, new { @Class = "btn btn-primary disabled" })
+            @Html.ActionLink("Details", "Details", new { id=item.ClientCommandLogId }, new { @Class = "btn btn-primary" })
+            @Html.ActionLink("Delete", "Delete", new { id=item.ClientCommandLogId }, new { @Class = "btn btn-primary" })
+        </td>
+    </tr>
+}
+
+</table>

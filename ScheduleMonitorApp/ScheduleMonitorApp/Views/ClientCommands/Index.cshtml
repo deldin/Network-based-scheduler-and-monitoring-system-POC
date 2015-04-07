@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ScheduleMonitorApp.Entities.ClientCommand>
+﻿@model IEnumerable<SchedulerMonitorDataEntities.Entities.ClientCommand>
 
 @{
     ViewBag.Title = "Index";
@@ -12,10 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ClientId)
+            @Html.DisplayName("Client")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Command)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsScheduled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsExecuted)
         </th>
         <th></th>
     </tr>
@@ -23,17 +29,27 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ClientId)
+            @Html.DisplayName(ViewData["ClientName"].ToString())
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Command)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.IsScheduled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsExecuted)
+        </td>
+        <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.ClientCommandId }, new { @Class = "btn btn-primary" })
             @Html.ActionLink("Details", "Details", new { id = item.ClientCommandId }, new { @Class = "btn btn-primary" })
             @Html.ActionLink("Delete", "Delete", new { id = item.ClientCommandId }, new { @Class = "btn btn-primary" })
+            @Html.ActionLink("View logs", "Index", "ClientCommandLog", new { clientCommandId = item.ClientCommandId }, new { @Class = "btn btn-info" })
         </td>
     </tr>
 }
-
+    
 </table>
+<p>
+    @Html.ActionLink("Clients Home", "Index", "Client", null, new { @Class = "btn btn-warning" })
+</p>

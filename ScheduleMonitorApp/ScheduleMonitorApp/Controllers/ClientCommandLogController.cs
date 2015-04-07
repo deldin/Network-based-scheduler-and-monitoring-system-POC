@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Net;
-using System.Web;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using Newtonsoft.Json;
-using ScheduleMonitorApp.Entities;
-using ScheduleMonitorApp.Models;
 using ScheduleMonitorApp.ViewModels;
+using SchedulerMonitorDataEntities.Entities;
 
 namespace ScheduleMonitorApp.Controllers
 {
     [Authorize]
-    public class CllientCommandLogController : Controller
+    public class ClientCommandLogController : Controller
     {
         private ScheduleMonitorDb db = new ScheduleMonitorDb();
         //private ScheduleMonitorModel _scheduleMonitorModel = new ScheduleMonitorModel(new ScheduleMonitorDb());
@@ -23,7 +18,13 @@ namespace ScheduleMonitorApp.Controllers
         // GET: /CllientCommandLog/
         public async Task<ActionResult> Index(int clientCommandId)
         {
+            ViewData["ClientId"] = db.ClientCommands.Find(clientCommandId).ClientId;
             return View(await db.ClientCommandLogs.Where(x=>x.ClientCommandId == clientCommandId).ToListAsync());
+        }
+
+        public async Task<ActionResult> Logs()
+        {
+            return View(await db.ClientCommandLogs.ToListAsync());
         }
 
         // GET: /CllientCommandLog/Details/5

@@ -1,4 +1,4 @@
-﻿@model ScheduleMonitorApp.Entities.ClientCommand
+﻿@model SchedulerMonitorDataEntities.Entities.ClientCommand
 
 @{
     ViewBag.Title = "Create";
@@ -10,25 +10,69 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+    @Html.Hidden("ClientId",ViewData["clientId"].ToString())
     <div class="form-horizontal">
         <h4>ClientCommand</h4>
         <hr />
         @Html.ValidationSummary(true)
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.ClientId, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ClientId)
                 @Html.ValidationMessageFor(model => model.ClientId)
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Command, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Command, new {@class = "control-label col-md-2"})
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Command)
                 @Html.ValidationMessageFor(model => model.Command)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsScheduled, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IsScheduled)
+                @Html.ValidationMessageFor(model => model.IsScheduled)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsExecuted, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.IsExecuted)
+                @Html.ValidationMessageFor(model => model.IsExecuted)
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.ScheduledTime, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ScheduledTime)
+                @Html.ValidationMessageFor(model => model.ScheduledTime)
+            </div>
+        </div>*@
+
+        <div class="container">
+            <div class="row">
+                <div class='col-sm-6'>
+                    <div class="form-group">
+                        <div class="input-group date" id="ScheduledTime">
+                            <input type="text" class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(function () {
+                        $("#ScheduledTime").datetimepicker();
+                    });
+                </script>
             </div>
         </div>
 
@@ -41,7 +85,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", new { clientId = ViewData["clientId"].ToString() }, new { @Class = "btn btn-warning" })
 </div>
 
 @section Scripts {

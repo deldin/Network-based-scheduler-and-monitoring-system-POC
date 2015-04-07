@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ScheduleMonitorApp.Entities;
+using SchedulerMonitorDataEntities.Entities;
 
 namespace ScheduleMonitorApp.Controllers
 {

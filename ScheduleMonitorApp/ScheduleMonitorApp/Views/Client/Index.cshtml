@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ScheduleMonitorApp.Entities.Client>
+﻿@model IEnumerable<SchedulerMonitorDataEntities.Entities.Client>
 
 @{
     ViewBag.Title = "Index";
@@ -27,6 +27,7 @@
                 @Html.ActionLink("Edit", "Edit", new {id = item.ClientId}, new {@Class = "btn btn-primary"})
                 @Html.ActionLink("Details", "Details", new {id = item.ClientId}, new {@Class = "btn btn-primary"})
                 @Html.ActionLink("Delete", "Delete", new {id = item.ClientId}, new {@Class = "btn btn-primary"})
+                @Html.ActionLink("Client Commands", "Index", "ClientCommands", new { clientId = item.ClientId }, new { @Class = "btn btn-info" })
             </td>
         </tr>
     }

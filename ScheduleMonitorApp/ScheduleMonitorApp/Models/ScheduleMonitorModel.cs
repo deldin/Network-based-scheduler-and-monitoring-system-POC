@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.Linq;
-using System.Web;
-using ScheduleMonitorApp.Entities;
+using SchedulerMonitorDataEntities.Entities;
 
 namespace ScheduleMonitorApp.Models
 {
@@ -21,7 +19,7 @@ namespace ScheduleMonitorApp.Models
             _db = db;
         }
 
-        internal System.Collections.IEnumerable getAllLogTypes()
+        internal IEnumerable getAllLogTypes()
         {
             var result = _db.ClientCommandLogs.Select(x => new{Text = x.LogType, Value= x.LogType}).Distinct().ToList();
             return result;
