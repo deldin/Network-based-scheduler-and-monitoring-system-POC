@@ -22,7 +22,7 @@ namespace ScheduleMonitorApp.Controllers
             TempData["clientId"] = clientId;
             Session["ClientId"] = clientId;
             ViewData["ClientName"] = db.Clients.Find(clientId).ClientName;
-            return View(await db.ClientCommands.Where(x=>x.ClientId == clientId).ToListAsync());
+            return View(await db.ClientCommands.Where(x=>x.ClientId == clientId && x.IsDeleted == false).ToListAsync());
         }
 
         // GET: /ClientCommands/Details/5
@@ -92,7 +92,7 @@ namespace ScheduleMonitorApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include="ClientCommandId,ClientId,Command")] ClientCommand clientcommand)
+        public async Task<ActionResult> Edit([Bind(Include = "ClientCommandId,ClientId,Command,IsScheduled")] ClientCommand clientcommand)
         {
             if (ModelState.IsValid)
             {
@@ -124,7 +124,8 @@ namespace ScheduleMonitorApp.Controllers
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             ClientCommand clientcommand = await db.ClientCommands.FindAsync(id);
-            db.ClientCommands.Remove(clientcommand);
+            clientcommand.IsDeleted = true;
+            //db.ClientCommands.Remove(clientcommand);
             await db.SaveChangesAsync();
             return RedirectToAction("Index", new { clientId = clientcommand.ClientId });
         }

@@ -13,12 +13,12 @@ namespace ScheduleMonitorApp.ViewModels
         [RegularExpression("\\d{3}", ErrorMessage = "Only 3 digit numbers for the commands")]
         public string Command { get; set; }
 
-        private bool isScheduled = false;
+        private bool isScheduled = true;
         public bool IsScheduled
         {
             get
             {
-                return true;
+                return isScheduled;
             }
             set { isScheduled = value; }
         }

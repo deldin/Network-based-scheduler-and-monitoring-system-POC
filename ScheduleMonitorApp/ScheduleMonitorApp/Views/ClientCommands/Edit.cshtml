@@ -27,10 +27,18 @@
         </div>*@
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Command, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Command, new {@class = "control-label col-md-2"})
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Command)
                 @Html.ValidationMessageFor(model => model.Command)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsScheduled, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IsScheduled)
+                @Html.ValidationMessageFor(model => model.IsScheduled)
             </div>
         </div>
 

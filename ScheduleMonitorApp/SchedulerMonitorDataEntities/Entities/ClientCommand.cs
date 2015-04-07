@@ -23,6 +23,9 @@ namespace SchedulerMonitorDataEntities.Entities
         public bool IsScheduled { get; set; }
         public bool IsExecuted { get; set; }
 
+        [DefaultValue(false)]
+        public bool IsDeleted { get; set; }
+
         [DataType(DataType.Date)]
         public DateTime? ScheduledTime { get; set; }
         public ICollection<ClientCommandLog> ClientCommandLogs { get; set; }

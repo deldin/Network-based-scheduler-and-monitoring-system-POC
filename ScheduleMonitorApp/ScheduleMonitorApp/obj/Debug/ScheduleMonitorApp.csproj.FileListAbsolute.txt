@@ -1,4 +1,3 @@
-C:\Users\RaviTeja\Desktop\Git\Network-based-scheduler-and-monitoring-system-POC\ScheduleMonitorApp\ScheduleMonitorApp\obj\Debug\ScheduleMonitorApp.csprojResolveAssemblyReference.cache
 C:\Users\RaviTeja\Desktop\Git\Network-based-scheduler-and-monitoring-system-POC\ScheduleMonitorApp\ScheduleMonitorApp\bin\ScheduleMonitorApp.dll.config
 C:\Users\RaviTeja\Desktop\Git\Network-based-scheduler-and-monitoring-system-POC\ScheduleMonitorApp\ScheduleMonitorApp\bin\ScheduleMonitorApp.dll
 C:\Users\RaviTeja\Desktop\Git\Network-based-scheduler-and-monitoring-system-POC\ScheduleMonitorApp\ScheduleMonitorApp\bin\ScheduleMonitorApp.pdb
@@ -53,5 +52,6 @@ C:\Users\RaviTeja\Desktop\Git\Network-based-scheduler-and-monitoring-system-POC\
 C:\Users\RaviTeja\Desktop\Git\Network-based-scheduler-and-monitoring-system-POC\ScheduleMonitorApp\ScheduleMonitorApp\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\RaviTeja\Desktop\Git\Network-based-scheduler-and-monitoring-system-POC\ScheduleMonitorApp\ScheduleMonitorApp\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\RaviTeja\Desktop\Git\Network-based-scheduler-and-monitoring-system-POC\ScheduleMonitorApp\ScheduleMonitorApp\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\RaviTeja\Desktop\Git\Network-based-scheduler-and-monitoring-system-POC\ScheduleMonitorApp\ScheduleMonitorApp\obj\Debug\ScheduleMonitorApp.csprojResolveAssemblyReference.cache
 C:\Users\RaviTeja\Desktop\Git\Network-based-scheduler-and-monitoring-system-POC\ScheduleMonitorApp\ScheduleMonitorApp\obj\Debug\ScheduleMonitorApp.dll
 C:\Users\RaviTeja\Desktop\Git\Network-based-scheduler-and-monitoring-system-POC\ScheduleMonitorApp\ScheduleMonitorApp\obj\Debug\ScheduleMonitorApp.pdb

@@ -18,12 +18,23 @@ namespace ScheduleMonitorApp.Controllers
         // GET: /CllientCommandLog/
         public async Task<ActionResult> Index(int clientCommandId)
         {
+            Session["clientCommandId"] = clientCommandId;
             ViewData["ClientId"] = db.ClientCommands.Find(clientCommandId).ClientId;
             return View(await db.ClientCommandLogs.Where(x=>x.ClientCommandId == clientCommandId).ToListAsync());
         }
 
         public async Task<ActionResult> Logs()
         {
+            Session["clientCommandId"] = null;
+
+           //// using (var dbContext = new ScheduleMonitorDb())
+           // {
+           //     var query = (from e in db.ClientCommands
+           //                 join d in db.ClientCommandLogs on e.ClientCommandId equals d.ClientCommandId
+           //                 select new { d.LogType, e.Command, d.LogText }).ToList();
+           //     return View(query);
+           // }
+           
             return View(await db.ClientCommandLogs.ToListAsync());
         }
 
@@ -138,7 +149,10 @@ namespace ScheduleMonitorApp.Controllers
             ClientCommandLog clientcommandlog = await db.ClientCommandLogs.FindAsync(id);
             db.ClientCommandLogs.Remove(clientcommandlog);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index", new { clientCommandId = clientcommandlog.ClientCommandId });
+            if (Session["clientCommandId"] == null)
+                return RedirectToAction("Logs");
+
+            return RedirectToAction("Index", new { clientCommandId = Session["clientCommandId"] });
         }
 
         protected override void Dispose(bool disposing)
